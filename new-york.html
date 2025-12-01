@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.typekit.net/jez6yrx.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Kalam:wght@300;400;700&display=block" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .events-map-container { height: 100vh; width: 100%; position: relative; }
+        .events-map-container #map { height: 100%; width: 100%; z-index: 1; }
+        .events-map-container ::-webkit-scrollbar { width: 6px; }
+        .events-map-container ::-webkit-scrollbar-track { background: #f1f1f1; }
+        .events-map-container ::-webkit-scrollbar-thumb { background: #888; border-radius: 3px; }
+        .events-map-container ::-webkit-scrollbar-thumb:hover { background: #555; }
+        .events-map-container .leaflet-popup-content-wrapper { border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .events-map-container .leaflet-popup-content { margin: 12px; font-size: 14px; line-height: 1.4; }
+        .events-map-container .day-card:hover { background-color: #f3f4f6; cursor: pointer; transform: translateY(-1px); transition: all 0.2s; }
+        .events-map-container #sidebar { transition: transform 0.3s ease-in-out; }
+        .events-map-container .sidebar-closed { transform: translateX(-100%); }
+    </style>
+
+    <title>Our US Memories: New York</title>
+</head>
+<body>
+    <div class="skip"><a href="#main-content">Skip to Main Content</a></div>
+    <nav id="home-nav">
+            <ul id = "nav-list">
+                <li><a href = "index.html">Home</a></li>
+                <li><a href = "ann-arbor.html">Ann Arbor</a></li>
+                <li><a href = "new-york.html" class="active">New York</a></li>
+                <li><a href = "los-angeles.html">Los Angeles</a></li>
+                <li><a href = "san-francisco.html">San Francisco</a></li>
+                <li><a href = "las-vegas.html">Las Vegas</a></li>
+            </ul>
+        </nav>
+    <header id="new-york-header">
+        <div class = "header-banner">
+            <h1>New York</h1>
+            <h2>Our New York Adventures</h2>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <div class ="filter-tab">
+            <p>Food</p>
+            <p>Places</p>
+            <p>Events</p>
+        </div>
+        <div class = "section-container" data-filter="Food">
+            <!-- Food content -->
+            <div class="content-container" id="food-1">
+                <img src="images/new-york-food/IMG_1552.JPG" alt="Food photo 1">
+            </div>
+            <div class="content-container" id="food-2">
+                <img src="images/new-york-food/IMG_1565.JPG" alt="Food photo 2">
+            </div>
+            <div class="content-container" id="food-3">
+                <img src="images/new-york-food/IMG_1594.JPG" alt="Food photo 3">
+            </div>
+            <div class="content-container" id="food-4">
+                <img src="images/new-york-food/IMG_1600.JPG" alt="Food photo 4">
+            </div>
+            <div class="content-container" id="food-5">
+                <img src="images/new-york-food/IMG_6842.JPG" alt="Food photo 5">
+            </div>
+            <div class="content-container" id="food-6">
+                <img src="images/new-york-food/IMG_6843.JPG" alt="Food photo 6">
+            </div>
+            <div class="content-container" id="food-7">
+                <img src="images/new-york-food/IMG_6867.JPG" alt="Food photo 7">
+            </div>
+            <div class="content-container" id="food-8">
+                <img src="images/new-york-food/IMG_7040.JPG" alt="Food photo 8">
+            </div>
+            <div class="content-container" id="food-9">
+                <img src="images/new-york-food/IMG_7041.JPG" alt="Food photo 9">
+            </div>
+            <div class="content-container" id="food-10">
+                <img src="images/new-york-food/IMG_7042.JPG" alt="Food photo 10">
+            </div>
+            <div class="content-container" id="food-11">
+                <img src="images/new-york-food/IMG_7045.JPG" alt="Food photo 11">
+            </div>
+            <div class="content-container" id="food-12">
+                <img src="images/new-york-food/IMG_7210.JPG" alt="Food photo 12">
+            </div>
+            <div class="content-container" id="food-13">
+                <img src="images/new-york-food/IMG_7595.JPG" alt="Food photo 13">
+            </div>
+            <div class="content-container" id="food-14">
+                <img src="images/new-york-food/IMG_7596.JPG" alt="Food photo 14">
+            </div>
+            <div class="content-container" id="food-15">
+                <img src="images/new-york-food/IMG_7599.JPG" alt="Food photo 15">
+            </div>
+            <div class="content-container" id="food-16">
+                <img src="images/new-york-food/IMG_7757.JPG" alt="Food photo 16">
+            </div>
+            <div class="content-container" id="food-17">
+                <img src="images/new-york-food/IMG_8170.JPG" alt="Food photo 17">
+            </div>
+            <div class="content-container" id="food-18">
+                <img src="images/new-york-food/IMG_8173.JPG" alt="Food photo 18">
+            </div>
+            <div class="content-container" id="food-19">
+                <img src="images/new-york-food/IMG_8920.JPG" alt="Food photo 19">
+            </div>
+            <div class="content-container" id="food-20">
+                <img src="images/new-york-food/IMG_8928.JPG" alt="Food photo 20">
+            </div>
+            <div class="content-container" id="food-21">
+                <img src="images/new-york-food/IMG_9122.JPG" alt="Food photo 21">
+            </div>
+            <div class="content-container" id="food-22">
+                <img src="images/new-york-food/IMG_9276.JPG" alt="Food photo 22">
+            </div>
+            <div class="content-container" id="food-23">
+                <img src="images/new-york-food/IMG_9278.JPG" alt="Food photo 23">
+            </div>
+            <div class="content-container" id="food-24">
+                <img src="images/new-york-food/IMG_9279.JPG" alt="Food photo 24">
+            </div>
+        </div>
+
+        <div class = "section-container hidden" data-filter="Places">
+            <!-- Places content -->
+            <div class="content-container" id="places-1">
+                <img src="images/new-york-places/IMG_6756.JPG" alt="Place photo 1">
+            </div>
+            <div class="content-container" id="places-2">
+                <img src="images/new-york-places/IMG_6808.JPG" alt="Place photo 2">
+            </div>
+            <div class="content-container" id="places-3">
+                <img src="images/new-york-places/IMG_6810.JPG" alt="Place photo 3">
+            </div>
+            <div class="content-container" id="places-4">
+                <img src="images/new-york-places/IMG_6820.JPG" alt="Place photo 4">
+            </div>
+            <div class="content-container" id="places-5">
+                <img src="images/new-york-places/IMG_6855.JPG" alt="Place photo 5">
+            </div>
+            <div class="content-container" id="places-6">
+                <img src="images/new-york-places/IMG_7018.JPG" alt="Place photo 6">
+            </div>
+            <div class="content-container" id="places-7">
+                <img src="images/new-york-places/IMG_7152.JPG" alt="Place photo 7">
+            </div>
+            <div class="content-container" id="places-8">
+                <img src="images/new-york-places/IMG_7168.JPG" alt="Place photo 8">
+            </div>
+            <div class="content-container" id="places-9">
+                <img src="images/new-york-places/IMG_7172.JPG" alt="Place photo 9">
+            </div>
+            <div class="content-container" id="places-10">
+                <img src="images/new-york-places/IMG_7177.JPG" alt="Place photo 10">
+            </div>
+            <div class="content-container" id="places-11">
+                <img src="images/new-york-places/IMG_7195.JPG" alt="Place photo 11">
+            </div>
+            <div class="content-container" id="places-12">
+                <img src="images/new-york-places/IMG_7267.JPG" alt="Place photo 12">
+            </div>
+            <div class="content-container" id="places-13">
+                <img src="images/new-york-places/IMG_7290.JPG" alt="Place photo 13">
+            </div>
+            <div class="content-container" id="places-14">
+                <img src="images/new-york-places/IMG_7585.JPG" alt="Place photo 14">
+            </div>
+            <div class="content-container" id="places-15">
+                <img src="images/new-york-places/IMG_7611.JPG" alt="Place photo 15">
+            </div>
+            <div class="content-container" id="places-16">
+                <img src="images/new-york-places/IMG_7616.JPG" alt="Place photo 16">
+            </div>
+            <div class="content-container" id="places-17">
+                <img src="images/new-york-places/IMG_7619.JPG" alt="Place photo 17">
+            </div>
+            <div class="content-container" id="places-18">
+                <img src="images/new-york-places/IMG_7657.JPG" alt="Place photo 18">
+            </div>
+            <div class="content-container" id="places-19">
+                <img src="images/new-york-places/IMG_7774.JPG" alt="Place photo 19">
+            </div>
+            <div class="content-container" id="places-20">
+                <img src="images/new-york-places/IMG_7813.JPG" alt="Place photo 20">
+            </div>
+            <div class="content-container" id="places-21">
+                <img src="images/new-york-places/IMG_7909.JPG" alt="Place photo 21">
+            </div>
+            <div class="content-container" id="places-22">
+                <img src="images/new-york-places/IMG_7972.JPG" alt="Place photo 22">
+            </div>
+            <div class="content-container" id="places-23">
+                <img src="images/new-york-places/IMG_8018.JPG" alt="Place photo 23">
+            </div>
+            <div class="content-container" id="places-24">
+                <img src="images/new-york-places/IMG_8113.JPG" alt="Place photo 24">
+            </div>
+            <div class="content-container" id="places-25">
+                <img src="images/new-york-places/IMG_8146.JPG" alt="Place photo 25">
+            </div>
+            <div class="content-container" id="places-26">
+                <img src="images/new-york-places/IMG_8263.JPG" alt="Place photo 26">
+            </div>
+            <div class="content-container" id="places-27">
+                <img src="images/new-york-places/IMG_8534.JPG" alt="Place photo 27">
+            </div>
+            <div class="content-container" id="places-28">
+                <img src="images/new-york-places/IMG_8610.JPG" alt="Place photo 28">
+            </div>
+            <div class="content-container" id="places-29">
+                <img src="images/new-york-places/IMG_8614.JPG" alt="Place photo 29">
+            </div>
+            <div class="content-container" id="places-30">
+                <img src="images/new-york-places/IMG_8680.JPG" alt="Place photo 30">
+            </div>
+            <div class="content-container" id="places-31">
+                <img src="images/new-york-places/IMG_8695.JPG" alt="Place photo 31">
+            </div>
+            <div class="content-container" id="places-32">
+                <img src="images/new-york-places/IMG_8742.JPG" alt="Place photo 32">
+            </div>
+            <div class="content-container" id="places-33">
+                <img src="images/new-york-places/IMG_8882.JPG" alt="Place photo 33">
+            </div>
+            <div class="content-container" id="places-34">
+                <img src="images/new-york-places/IMG_8999.JPG" alt="Place photo 34">
+            </div>
+            <div class="content-container" id="places-35">
+                <img src="images/new-york-places/IMG_9013.JPG" alt="Place photo 35">
+            </div>
+            <div class="content-container" id="places-36">
+                <img src="images/new-york-places/IMG_9025.JPG" alt="Place photo 36">
+            </div>
+            <div class="content-container" id="places-37">
+                <img src="images/new-york-places/IMG_9027.JPG" alt="Place photo 37">
+            </div>
+            <div class="content-container" id="places-38">
+                <img src="images/new-york-places/IMG_9205.JPG" alt="Place photo 38">
+            </div>
+        </div>
+
+        <div class = "section-container hidden" data-filter="Events">
+            <!-- Events content - Interactive Map -->
+            <div class="flex flex-col md:flex-row h-screen bg-gray-50 overflow-hidden" style="height: 80vh; min-height: 600px; width: 100%;">
+                <!-- Mobile Header -->
+                <div class="md:hidden bg-white shadow-md p-4 flex justify-between items-center z-50 relative">
+                    <h1 class="font-bold text-lg text-gray-800">NYC Itinerary Mar 4-10</h1>
+                    <button id="menuToggle" class="text-gray-600 focus:outline-none">
+                        <i class="fas fa-bars fa-lg"></i>
+                    </button>
+                </div>
+                <!-- Sidebar / Itinerary List -->
+                <div id="sidebar" class="w-full md:w-96 bg-white shadow-xl z-40 flex flex-col h-[calc(100%-60px)] md:h-full absolute md:relative sidebar-closed md:transform-none">
+                    <div class="p-5 border-b bg-gray-50 hidden md:block">
+                        <h1 class="text-2xl font-bold text-gray-800">NYC Itinerary Map</h1>
+                        <p class="text-sm text-gray-500 mt-1">Mar 4 - Mar 10</p>
+                    </div>
+                    
+                    <div class="flex-1 overflow-y-auto p-4 space-y-4" id="itinerary-list">
+                        <!-- Content injected by JS -->
+                    </div>
+                    <div class="p-4 border-t bg-gray-50 text-xs text-gray-400 text-center">
+                        Click cards to focus on route
+                    </div>
+                </div>
+                <!-- Map Container -->
+                <div class="flex-1 relative h-full">
+                    <div id="events-map" style="height: 100%; width: 100%;"></div>
+                    
+                    <!-- Map Legend Overlay -->
+                    <div class="absolute bottom-6 right-4 bg-white p-3 rounded-lg shadow-lg z-[1000] text-sm hidden md:block opacity-90">
+                        <h4 class="font-bold mb-2 border-b pb-1">Legend</h4>
+                        <div id="legend-content" class="space-y-1"></div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                // Initialize map when Events section becomes visible
+                function initEventsMap() {
+                    if (window.eventsMapInstance) {
+                        setTimeout(() => {
+                            window.eventsMapInstance.invalidateSize();
+                        }, 100);
+                        return;
+                    }
+                    
+                    // --- Data: Itinerary Points & Routes ---
+                    const itineraryData = [
+                    {
+                        date: "Mar 4",
+                        title: "Arrival & Midtown Intro",
+                        color: "#ef4444", // Red
+                        description: "Airport Express -> Bryant Park -> Flatiron -> Empire State",
+                        points: [
+                            { name: "Bryant Park / Public Library", lat: 40.7536, lng: -73.9832, note: "Drop-off point, get library tour slot" },
+                            { name: "Hotel (Midtown Area)", lat: 40.7484, lng: -73.9857, note: "Check-in (Approx location)" },
+                            { name: "Union Square Park", lat: 40.7359, lng: -73.9911, note: "Via Subway" },
+                            { name: "Flatiron Building", lat: 40.7411, lng: -73.9897, note: "Sightseeing" },
+                            { name: "Madison Square Park", lat: 40.7420, lng: -73.9880, note: "Walk through" },
+                            { name: "Empire State Building", lat: 40.7484, lng: -73.9857, note: "Night view (Dinner: Korean)" }
+                        ]
+                    },
+                    {
+                        date: "Mar 5",
+                        title: "Financial District & Brooklyn",
+                        color: "#3b82f6", // Blue
+                        description: "9/11 Memorial -> Wall St -> Statue of Liberty -> Chinatown -> Dumbo",
+                        points: [
+                            { name: "9/11 Memorial", lat: 40.7118, lng: -74.0131, note: "First stop in the morning" },
+                            { name: "Trinity Church / Wall St", lat: 40.7081, lng: -74.0106, note: "NYSE / Church" },
+                            { name: "Charging Bull", lat: 40.7055, lng: -74.0134, note: "Photo stop" },
+                            { name: "Battery Park", lat: 40.7033, lng: -74.0170, note: "View Statue of Liberty" },
+                            { name: "Home of Joy (Chinatown)", lat: 40.7153, lng: -73.9965, note: "Lunch spot" },
+                            { name: "City Hall Station", lat: 40.7133, lng: -74.0062, note: "Subway to Dumbo" },
+                            { name: "DUMBO / Jane's Carousel", lat: 40.7046, lng: -73.9902, note: "Carousel / Views" },
+                            { name: "Brooklyn Bridge Walk", lat: 40.7061, lng: -73.9969, note: "5:30 PM Sunset walk back" }
+                        ]
+                    },
+                    {
+                        date: "Mar 6",
+                        title: "Midtown Icons & UN",
+                        color: "#10b981", // Emerald
+                        description: "Summit -> UN -> MoMA -> Times Square",
+                        points: [
+                            { name: "Summit One Vanderbilt", lat: 40.7527, lng: -73.9772, note: "9:00 AM (Entry by 9:15)" },
+                            { name: "UN Headquarters", lat: 40.7489, lng: -73.9680, note: "10:30 AM Report" },
+                            { name: "Grand Central Terminal", lat: 40.7527, lng: -73.9772, note: "Visit" },
+                            { name: "Sozai Japanese Restaurant", lat: 40.7540, lng: -73.9700, note: "1:30 PM Lunch (Approx Loc)" },
+                            { name: "MoMA", lat: 40.7614, lng: -73.9776, note: "Museum of Modern Art" },
+                            { name: "Times Square", lat: 40.7580, lng: -73.9855, note: "Walk around" },
+                            { name: "K-Town (Chog/Korean)", lat: 40.7478, lng: -73.9868, note: "Dinner: Korean" }
+                        ]
+                    },
+                    {
+                        date: "Mar 7",
+                        title: "Hudson Yards & Arts",
+                        color: "#f59e0b", // Amber
+                        description: "Vessel -> Cruise -> Little Island -> Whitney -> Morgan Library",
+                        points: [
+                            { name: "The Vessel / Hudson Yards", lat: 40.7538, lng: -74.0022, note: "Morning snacks/Ice cream" },
+                            { name: "Pier 83 (Circle Line)", lat: 40.7630, lng: -74.0010, note: "12:30 PM Cruise (Arr 12:00)" },
+                            { name: "Little Island", lat: 40.7420, lng: -74.0096, note: "Park visit" },
+                            { name: "Chelsea Market", lat: 40.7424, lng: -74.0062, note: "Lunch (Bangkok?)" },
+                            { name: "Whitney Museum", lat: 40.7396, lng: -74.0089, note: "5-10 PM Free entry" },
+                            { name: "Morgan Library", lat: 40.7496, lng: -73.9814, note: "6:15 PM Entry" }
+                        ]
+                    },
+                    {
+                        date: "Mar 8",
+                        title: "Nature & Classics",
+                        color: "#8b5cf6", // Violet
+                        description: "Natural History Museum -> Central Park Boating -> Rockefeller",
+                        points: [
+                            { name: "American Museum of Natural History", lat: 40.7813, lng: -73.9740, note: "Museum visit" },
+                            { name: "Loeb Boathouse (Central Park)", lat: 40.7753, lng: -73.9688, note: "Boat rental near fountain" },
+                            { name: "Rockefeller Center", lat: 40.7587, lng: -73.9787, note: "5:20 PM Sunset at Channel Garden" },
+                            { name: "St. Patrick's Cathedral", lat: 40.7585, lng: -73.9760, note: "Cathedral visit" }
+                        ]
+                    },
+                    {
+                        date: "Mar 9",
+                        title: "Museum Mile",
+                        color: "#ec4899", // Pink
+                        description: "The Met -> Guggenheim -> 5th Ave",
+                        points: [
+                            { name: "The Met", lat: 40.7794, lng: -73.9632, note: "Metropolitan Museum of Art" },
+                            { name: "Guggenheim Museum", lat: 40.7829, lng: -73.9590, note: "Museum visit" },
+                            { name: "5th Avenue Shopping", lat: 40.7630, lng: -73.9730, note: "Shopping / Stroll" }
+                        ]
+                    },
+                    {
+                        date: "Mar 10",
+                        title: "Finale",
+                        color: "#6b7280", // Gray
+                        description: "Roosevelt Island -> Airport",
+                        points: [
+                            { name: "Roosevelt Island", lat: 40.7591, lng: -73.9533, note: "Relaxed morning" },
+                            { name: "Airport (JFK/LGA/EWR)", lat: 40.7400, lng: -73.8800, note: "Head to airport" }
+                        ]
+                    }
+                    ];
+                    
+                    // --- Map Initialization ---
+                    // Check if map container exists before initializing
+                    const mapContainer = document.getElementById('events-map');
+                    if (!mapContainer) {
+                        console.error('Map container not found');
+                        return;
+                    }
+                    
+                    // Initialize centered on Manhattan
+                    const eventsMap = L.map('events-map').setView([40.75, -73.98], 13);
+                    
+                    // Store map reference globally
+                    window.eventsMapInstance = eventsMap;
+                    window.eventsMapInitialized = true;
+
+                    // Add CartoDB Voyager Tile Layer (Clean, light map style good for overlays)
+                    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                        subdomains: 'abcd',
+                        maxZoom: 20
+                    }).addTo(eventsMap);
+
+                    // --- Render Itinerary ---
+                    const layerGroups = {};
+                    const sidebarList = document.getElementById('itinerary-list');
+                    const legendContent = document.getElementById('legend-content');
+
+                    itineraryData.forEach((day, index) => {
+                    // 1. Create Feature Group for the day
+                    const dayLayer = L.featureGroup();
+                    
+                    // 2. Create Route (Polyline)
+                    const latLngs = day.points.map(p => [p.lat, p.lng]);
+                    L.polyline(latLngs, {
+                        color: day.color,
+                        weight: 4,
+                        opacity: 0.8,
+                        dashArray: '5, 10', // Dashed line to imply travel
+                        lineJoin: 'round'
+                    }).addTo(dayLayer);
+
+                    // 3. Create Markers
+                    day.points.forEach((point, i) => {
+                        const markerHtml = `
+                            <div style="background-color: ${day.color}; width: 24px; height: 24px; border-radius: 50%; border: 2px solid white; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                                ${i + 1}
+                            </div>`;
+                        
+                        const customIcon = L.divIcon({
+                            className: 'custom-div-icon',
+                            html: markerHtml,
+                            iconSize: [24, 24],
+                            iconAnchor: [12, 12]
+                        });
+
+                        L.marker([point.lat, point.lng], { icon: customIcon })
+                            .bindPopup(`<b>${point.name}</b><br><span style="color:gray">${point.note}</span>`)
+                            .addTo(dayLayer);
+                    });
+
+                    // Add layer to map
+                    dayLayer.addTo(eventsMap);
+                    layerGroups[day.date] = dayLayer;
+
+                    // 4. Create Sidebar Element
+                    const card = document.createElement('div');
+                    card.className = "day-card bg-white p-4 rounded-lg shadow-sm border border-l-4";
+                    card.style.borderLeftColor = day.color;
+                    card.innerHTML = `
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-bold text-lg text-gray-800">${day.date}</span>
+                            <span class="text-xs font-semibold px-2 py-1 rounded bg-gray-100 text-gray-600">Day ${index + 1}</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-700 text-sm mb-1">${day.title}</h3>
+                        <p class="text-xs text-gray-500 line-clamp-2">${day.description}</p>
+                    `;
+                    
+                    // Click event to focus map
+                    card.addEventListener('click', () => {
+                        // Mobile: Close sidebar
+                        if(window.innerWidth < 768) {
+                            document.getElementById('sidebar').classList.add('sidebar-closed');
+                        }
+                        // Fit bounds with padding
+                        eventsMap.fitBounds(layerGroups[day.date].getBounds(), { padding: [50, 50] });
+                        
+                        // Highlight active card visual (optional logic could go here)
+                    });
+
+                    sidebarList.appendChild(card);
+
+                    // 5. Add to Legend
+                    const legendItem = document.createElement('div');
+                    legendItem.className = "flex items-center gap-2";
+                    legendItem.innerHTML = `<div style="width: 12px; height: 12px; background-color: ${day.color}; border-radius: 50%;"></div><span>${day.date}</span>`;
+                    legendContent.appendChild(legendItem);
+                });
+
+                    // --- Mobile Sidebar Toggle ---
+                    const menuBtn = document.getElementById('menuToggle');
+                    const sidebar = document.getElementById('sidebar');
+                    if(menuBtn && sidebar) {
+                        menuBtn.addEventListener('click', () => {
+                            sidebar.classList.toggle('sidebar-closed');
+                        });
+                    }
+
+                    // Adjust view initially to fit all routes
+                    const group = new L.featureGroup(Object.values(layerGroups));
+                    eventsMap.fitBounds(group.getBounds());
+                }
+                
+                // Initialize map when Events section becomes visible
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Watch for Events section visibility changes
+                    const observer = new MutationObserver(function(mutations) {
+                        mutations.forEach(function(mutation) {
+                            const eventsSection = document.querySelector('.section-container[data-filter="Events"]');
+                            if (eventsSection && !eventsSection.classList.contains('hidden')) {
+                                // Events section is now visible, initialize map if needed
+                                setTimeout(initEventsMap, 150);
+                            }
+                        });
+                    });
+                    
+                    // Observe the Events section container
+                    const eventsSection = document.querySelector('.section-container[data-filter="Events"]');
+                    if (eventsSection) {
+                        observer.observe(eventsSection, {
+                            attributes: true,
+                            attributeFilter: ['class']
+                        });
+                    }
+                });
+                
+                // Also hook into the gallery.js filter update
+                const originalUpdateContentVisibility = window.updateContentVisibility;
+                if (originalUpdateContentVisibility) {
+                    window.updateContentVisibility = function(filter) {
+                        originalUpdateContentVisibility(filter);
+                        if (filter === 'Events') {
+                            setTimeout(initEventsMap, 150);
+                        }
+                    };
+                }
+            </script>
+        </div>
+
+    </main>
+    <script src = "js/gallery.js"></script>
+</body>
+</html>
+

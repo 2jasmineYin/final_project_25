@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.typekit.net/jez6yrx.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Kalam:wght@300;400;700&display=block" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Travel with Us</title>
+</head>
+<body>
+    <div class="skip"><a href="#main-content">Skip to Main Content</a></div>
+    <nav id="home-nav">
+        <ul id = "nav-list">
+            <li><a href = "index.html" class="active">Home</a></li>
+            <li><a href = "ann-arbor.html">Ann Arbor</a></li>
+            <li><a href = "new-york.html">New York</a></li>
+            <li><a href = "los-angeles.html">Los Angeles</a></li>
+            <li><a href = "san-francisco.html">San Francisco</a></li>
+            <li><a href = "las-vegas.html">Las Vegas</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        <div class ="homepage-layout">
+            <div class="welcome-section">
+                <img src="images/plain3.png" alt="" class="decoration-star-top" aria-hidden="true">
+                <h1 class="welcome-title">Travel with Us</h1>
+                <img src="images/Star1.png" alt="" class="decoration-star-middle" aria-hidden="true">
+                <p class="welcome-text">
+                    Welcome to our memory collection!<br>
+                    Here, we've documented all our precious<br>
+                    moments in the United States: the<br>
+                    delicious food from every trip, the<br>
+                    amazing places we visited the special moments we shared, and all the wonderful times we spent together.<br>
+                    Click on the city markers on the map to explore our memories together!
+                </p>
+                <img src="images/plain.png" alt="" class="decoration-star-bottom" aria-hidden="true">
+            </div>
+            <div class="map">
+                <img src="images/Americanmap.png" alt="United States Map" id="us-map-img">
+                
+                <!-- Interactive City Image Markers -->
+                <a href="las-vegas.html" class="city-image-marker" id="lv-image">
+                    <img src="images/Lasvegas.png" alt="Las Vegas">
+                </a>
+                
+                <a href="new-york.html" class="city-image-marker" id="ny-image">
+                    <img src="images/newyork.png" alt="New York">
+                </a>
+                
+                <a href="ann-arbor.html" class="city-image-marker" id="aa-image">
+                    <img src="images/michigan.png" alt="Ann Arbor, Michigan">
+                </a>
+                
+                <a href="los-angeles.html" class="city-image-marker" id="la-image">
+                    <img src="images/los.png" alt="Los Angeles">
+                </a>
+                
+                <a href="san-francisco.html" class="city-image-marker" id="sf-image">
+                    <img src="images/san.png" alt="San Francisco">
+                </a>
+            </div>
+        </div>
+    </main>
+    <script src = "js/map.js"></script>
+</body>
+</html>
+
